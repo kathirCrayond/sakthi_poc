@@ -61,8 +61,8 @@ module.exports.fetchuserbyemail = async (req, res) => {
     const user = await pool.query("SELECT * FROM users WHERE email=$1", [
       email,
     ]);
-    res.render('home', { name: user.rows[0].firstname });
- //   res.status(200).json(user.rows[0])
+    // res.render('home', { name: user.rows[0].firstname });
+   res.status(200).json(user.rows[0])
     //2. check if user does not exist and return an error else login the user
    console.log(JSON.stringify(user))
   } catch (err) {
